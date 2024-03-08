@@ -1,0 +1,209 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'NanumMyeongjo-Regular';
+    background-color: rgb(119, 119, 119);
+}
+
+#book {
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50vh - 200px);
+    transition: 1.2s;
+    border-radius: 10px;
+    animation: darkness 5s infinite linear;
+}
+
+#bookWrap {
+    z-index: 3;
+    width: 300px;
+    height: 400px;
+    background-color: rgb(36, 27, 69);
+    position: absolute;
+    /* left: 150px; */
+    transition: 1s;
+    transform-origin: center left;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.673) 0px 5px 15px;
+}
+
+.magicTextWrap:nth-of-type(1) {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 32px;
+    top: 32px;
+    outline: 2px solid rgb(212, 173, 0);
+    width: 236px;
+    height: 336px;
+    background-color: transparent;
+}
+
+.magicTextWrap:nth-of-type(2) {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    outline: 2px solid rgb(212, 173, 0);
+    width: 274px;
+    height: 374px;
+    background-color: transparent;
+}
+
+#bookWrap h1 {
+    text-align: center;
+    color: rgb(212, 173, 0);
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 80px;
+}
+
+#bookWrap h3 {
+    text-align: center;
+    color: rgb(212, 173, 0);
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    top: 130px;
+    left: 50px;
+    font-weight: 500;
+}
+
+.magicText {
+    color:  rgb(212, 173, 0);
+    font-size: 20px;
+    transform-origin: center;
+    position: absolute;
+}
+
+.magicText:nth-of-type(1) {
+    top: 6px;
+    left: 14px;
+    width: 270px;
+}
+
+.magicText:nth-of-type(2) {
+    transform: rotate(90deg);
+    left: 110px;
+    top: 190px;
+    width: 340px;
+}
+
+.magicText:nth-of-type(3) {
+    transform: rotate(180deg);    
+    right: 14px;
+    bottom: 6px;
+    width: 270px;
+}
+
+.magicText:nth-of-type(4) {
+    transform: rotate(270deg);
+    right: 110px;
+    bottom: 190px;
+    width: 340px;
+}
+
+.bookPages {
+    z-index: 2;
+    width: 290px;
+    height: 380px;
+    /* background: rgb(228,228,228); */
+    background: linear-gradient(90deg, rgb(232, 232, 232) 0%, rgb(255, 255, 255) 5%, rgb(255, 255, 255) 100%);
+    position: absolute;
+    top: 10px;
+    /* left: 150px; */
+    transform-origin: center left;
+    text-align: center;
+}
+
+.bookPages::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    outline: 2px solid rgb(0, 0, 0);
+    width: 270px;
+    height: 360px;
+    background-color: transparent;
+}
+
+.bookPages ul {
+    text-align: left;
+}
+
+#bookWrap2 {
+    z-index: 0;
+    width: 300px;
+    height: 400px;
+    background-color: rgb(22, 15, 45);
+    position: absolute;
+    /* left: 150px; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.673) 0px 5px 15px;
+}
+
+.turnPage {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    color: rgb(150, 150, 150);
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.turnPage:hover {
+    color: rgb(66, 66, 66);
+}
+
+.result {
+    position: absolute;
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    top: calc(50% - 50px);
+    left: 60px;
+    word-break: keep-all;
+}
+
+@keyframes openBook {
+    from {
+        transform: perspective(1100px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1100px) rotateY(-180deg);
+    }
+}
+
+.openBook {
+    animation: openBook 1.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes closeBook {
+    from {
+        transform: perspective(1100px) rotateY(-180deg);
+    }
+    to {
+        transform: perspective(1100px) rotateY(0deg);
+    }
+}
+
+.closeBook {
+    animation: closeBook 1.2s;
+    animation-fill-mode: forwards;
+}
+
+@font-face {
+    font-family: 'NanumMyeongjo-Regular';
+    src: url('fonts/NanumMyeongjo-Regular.ttf');
+}
